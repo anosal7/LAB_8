@@ -1,0 +1,22 @@
+<p> eloeleeldfksfsdfjsdfdfdskfdkf</p>
+<h1> eloeleeldfksfsdfjsdfdfdskfdkf</h1>
+
+
+<!--<div *ngFor="let item of items | filter:filterText">-->
+  <!--<app-blog-item [image]="item.image" [text]="item.text"></app-blog-item>-->
+<!--</div>-->
+
+<form class="form-inline">
+  <input name="text" id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="filterText" placeholder="Wpisz nazwę ..." (ngModelChange)="setQuery(filterText)" >
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"  routerLink = "blog" queryParams="{'title':search}">Szukaj</button>
+</form>
+
+<button class="btn btn-primary" routerLink="/blog/create" type="button">Nowy post</button>
+
+<div *ngFor="let item of items | filter:filterText">
+  <!--<app-blog-item [image]="item.url" [text]="item.title" | summary:35 (click)="newValues(item.title, item.url, items.indexOf(item))"></app-blog-item>-->
+  <app-blog-item [image]="item.url" [text]="item.title" (click)="toDetails(item.id)"></app-blog-item>
+
+</div>
+
+
